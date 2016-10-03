@@ -51,22 +51,22 @@ namespace MirEditor
             MirPath = Reader.ReadString("Game", "MirPath", MirPath);
             LogErrors = Reader.ReadBoolean("Logs", "LogErrors", LogErrors);
 
-            if (MirPath == "")
+            
+            while( !Directory.Exists( MirPath + "\\Map") )
             {
                 FolderBrowserDialog dialog = new FolderBrowserDialog();
                 dialog.Description = "没有找到游戏目录，请设置";
-                if ( dialog.ShowDialog() == DialogResult.OK )
+                if (dialog.ShowDialog() == DialogResult.OK)
                 {
                     MirPath = dialog.SelectedPath;
                     MessageBox.Show("已选择文件夹:" + MirPath, "选择文件夹提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Save();
                 }
-                else
-                {
-                    return;
-                }
-
+                
             }
+                
+
+            
 
             if (!Directory.Exists(DataPath)) Directory.CreateDirectory(DataPath);
             if (!Directory.Exists(MapPath)) Directory.CreateDirectory(MapPath);
