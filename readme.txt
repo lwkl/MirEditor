@@ -1,3 +1,1 @@
-你好
-﻿这是一个测试文件
-你好
+﻿reference to Suprcode/mir2-mapeditor
